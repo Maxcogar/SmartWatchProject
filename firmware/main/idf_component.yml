@@ -1,0 +1,24 @@
+# Component dependencies for ESP32-S3 ADHD SmartWatch
+# Defines required ESP-IDF components and third-party libraries
+
+dependencies:
+  # ESP-IDF version requirement
+  idf: ">=5.1.0,<6.0"
+  
+  # UI Framework dependencies
+  lvgl/lvgl: "~8.4.0"
+  espressif/esp_lcd_touch_cst816s: "^1.0.3"
+  
+  # Potential esp-brookesia dependency (local copy exists)
+  # espressif/esp_brookesia: "^0.1.0"  # Uncomment when available in registry
+  
+  # Additional utility components
+  espressif/json: "^3.2.0"
+  espressif/esp_secure_cert_mgr: "^2.0.0"
+  espressif/mbedtls: "~3.4.0"
+  
+  # Optional: for better HTTP client support
+  espressif/esp_http_client: "*"
+  
+  # Development and testing
+  espressif/unity: "*"

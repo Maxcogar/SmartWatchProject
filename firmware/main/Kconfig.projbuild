@@ -1,0 +1,198 @@
+# Project-specific configuration options for ESP32-S3 ADHD SmartWatch
+# These options appear in menuconfig under "ADHD SmartWatch Configuration"
+
+menu "ADHD SmartWatch Configuration"
+    
+    menu "Build Configuration"
+        config ADHD_WATCH_DEBUG
+            bool "Enable Debug Mode"
+            default y
+            help
+                Enable debug mode with verbose logging and development features.
+                Disable for production builds to reduce binary size and improve performance.
+        
+        config ADHD_WATCH_PRODUCTION
+            bool "Production Build"
+            default n
+            depends on !ADHD_WATCH_DEBUG
+            help
+                Enable production-specific optimizations and security features.
+                This should only be enabled for production releases.
+    endmenu
+    
+    menu "Hardware Configuration"
+        config ADHD_WATCH_DISPLAY_WIDTH
+            int "Display Width"
+            default 240
+            range 240 240
+            help
+                Display width in pixels for ESP32-S3-Touch-LCD-2.
+        
+        config ADHD_WATCH_DISPLAY_HEIGHT
+            int "Display Height" 
+            default 320
+            range 320 320
+            help
+                Display height in pixels for ESP32-S3-Touch-LCD-2.
+        
+        config ADHD_WATCH_TOUCH_I2C_SDA
+            int "Touch I2C SDA GPIO"
+            default 48
+            range 0 48
+            help
+                GPIO number for touch controller I2C SDA line (confirmed from hardware example).
+        
+        config ADHD_WATCH_TOUCH_I2C_SCL
+            int "Touch I2C SCL GPIO"
+            default 47
+            range 0 48
+            help
+                GPIO number for touch controller I2C SCL line (confirmed from hardware example).
+        
+        config ADHD_WATCH_TOUCH_INT
+            int "Touch Interrupt GPIO"
+            default -1
+            range -1 48
+            help
+                GPIO number for touch controller interrupt line (not used in basic implementation).
+        
+        config ADHD_WATCH_TOUCH_RST
+            int "Touch Reset GPIO"
+            default -1
+            range -1 48
+            help
+                GPIO number for touch controller reset line (not used in basic implementation).
+        
+        config ADHD_WATCH_BACKLIGHT_GPIO
+            int "Display Backlight GPIO"
+            default 1
+            range 0 48
+            help
+                GPIO number controlling display backlight (confirmed from hardware example).
+        
+        config ADHD_WATCH_BATTERY_ADC_CHANNEL
+            int "Battery ADC Channel"
+            default 3
+            range 0 9
+            help
+                ADC channel for battery voltage monitoring.
+    endmenu
+    
+    menu "BLE Configuration"
+        config ADHD_WATCH_BLE_DEVICE_NAME
+            string "BLE Device Name"
+            default "ADHD SmartWatch"
+            help
+                Bluetooth device name advertised to other devices.
+        
+        config ADHD_WATCH_BLE_SECURITY_LEVEL
+            int "BLE Security Level"
+            default 2
+            range 0 3
+            help
+                BLE security level:
+                0 - No security
+                1 - Unauthenticated pairing
+                2 - Authenticated pairing (recommended)
+                3 - Authenticated pairing with MITM protection
+    endmenu
+    
+    menu "Power Management"
+        config ADHD_WATCH_BATTERY_LOW_THRESHOLD
+            int "Battery Low Threshold (%)"
+            default 20
+            range 5 50
+            help
+                Battery percentage threshold for low battery warning.
+        
+        config ADHD_WATCH_BATTERY_CRITICAL_THRESHOLD
+            int "Battery Critical Threshold (%)"
+            default 5
+            range 1 20
+            help
+                Battery percentage threshold for critical battery shutdown.
+        
+        config ADHD_WATCH_SLEEP_TIMEOUT_SECONDS
+            int "Display Sleep Timeout (seconds)"
+            default 30
+            range 10 300
+            help
+                Number of seconds of inactivity before display turns off.
+        
+        config ADHD_WATCH_DEEP_SLEEP_TIMEOUT_MINUTES
+            int "Deep Sleep Timeout (minutes)"
+            default 5
+            range 1 60
+            help
+                Number of minutes of inactivity before entering deep sleep.
+    endmenu
+    
+    menu "Focus Session Configuration"
+        config ADHD_WATCH_DEFAULT_FOCUS_DURATION
+            int "Default Focus Duration (minutes)"
+            default 25
+            range 5 120
+            help
+                Default duration for focus sessions in minutes.
+        
+        config ADHD_WATCH_SHORT_BREAK_DURATION
+            int "Short Break Duration (minutes)"
+            default 5
+            range 1 15
+            help
+                Duration for short breaks between focus sessions.
+        
+        config ADHD_WATCH_LONG_BREAK_DURATION
+            int "Long Break Duration (minutes)"
+            default 15
+            range 10 60
+            help
+                Duration for long breaks after multiple focus sessions.
+    endmenu
+    
+    menu "Notification Configuration"
+        config ADHD_WATCH_MAX_NOTIFICATIONS
+            int "Maximum Queued Notifications"
+            default 10
+            range 5 50
+            help
+                Maximum number of notifications that can be queued.
+        
+        config ADHD_WATCH_NOTIFICATION_TIMEOUT_SECONDS
+            int "Notification Display Timeout (seconds)"
+            default 10
+            range 3 60
+            help
+                How long notifications are displayed before auto-dismissing.
+    endmenu
+    
+    menu "Development & Testing"
+        config ADHD_WATCH_ENABLE_TEST_MODE
+            bool "Enable Test Mode"
+            default n
+            depends on ADHD_WATCH_DEBUG
+            help
+                Enable test mode with mock data and extended debugging.
+        
+        config ADHD_WATCH_ENABLE_OTA_UPDATE
+            bool "Enable OTA Updates"
+            default y
+            help
+                Enable Over-The-Air firmware update functionality.
+        
+        config ADHD_WATCH_LOG_LEVEL
+            int "Log Level"
+            default 3
+            range 0 5
+            depends on ADHD_WATCH_DEBUG
+            help
+                Logging level:
+                0 - None
+                1 - Error
+                2 - Warning  
+                3 - Info
+                4 - Debug
+                5 - Verbose
+    endmenu
+
+endmenu

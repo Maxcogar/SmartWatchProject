@@ -1,0 +1,187 @@
+# ESP32/Arduino IDE Build Files
+build/
+*.bin
+*.elf
+*.map
+*.hex
+*.lst
+*.o
+*.a
+*.so
+*.lib
+
+# ESP-IDF Specific
+sdkconfig.old
+build/
+dependencies.lock
+
+# Arduino IDE
+*.ino.bin
+*.ino.elf
+*.ino.map
+*.ino.hex
+libraries/
+
+# PlatformIO
+.pio/
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj.user
+bin/
+obj/
+Debug/
+Release/
+
+# Node.js (for any web interfaces or tooling)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Python (for any scripts or tooling)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PowerShell
+*.ps1.bak
+*.ps1.old
+
+# Operating System Files
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDE and Editor files
+*.sublime-project
+*.sublime-workspace
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.metadata
+.settings/
+
+# Quality Gates and Process Files (keep structure but ignore data)
+docs/.quality-gates/*
+!docs/.quality-gates/.gitkeep
+*.quality-state
+*.quality-report
+quality-dashboard.html
+quality-metrics.csv
+
+# Certificates and Keys (IMPORTANT: Never commit these)
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+certificates/
+keys/
+secrets/
+
+# Configuration files with sensitive data
+config.json
+secrets.json
+*.env
+.env.*
+
+# Documentation build artifacts
+*.pdf.bak
+*.md.bak
+
+# Test artifacts
+test-results/
+coverage/
+*.test
+*.spec
+
+# Firmware binaries (uncomment if you don't want to version control them)
+# *.bin
+# *.hex
+# *.elf
+
+# Hardware design files (keep source, ignore exports)
+*.gbr
+*.drl
+*.excellon
+*.zip
+
+# 3D Models exports (keep source .step/.stp files)
+*.stl
+*.3mf

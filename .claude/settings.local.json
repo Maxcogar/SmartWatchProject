@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(powershell.exe:*)",
+      "Bash(powershell:*)",
+      "Bash(idf.py build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

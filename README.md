@@ -84,10 +84,17 @@ SmartWatchProject/
 3. **Build Firmware**
    ```bash
    # Arduino IDE: Open firmware/main/main.cpp and compile
-   
+
    # ESP-IDF
    cd firmware
    idf.py build
+
+   # Or use build scripts
+   # PowerShell
+   pwsh ./build_scripts/build.ps1 -Flash
+
+   # Bash
+   ./build_scripts/build.sh --flash
    ```
 
 4. **Flash Firmware**
@@ -119,6 +126,11 @@ Multiple development environments supported:
 - **Arduino IDE**: Simple development with `.ino` files
 - **ESP-IDF**: Professional development with full ESP32 features
 - **PlatformIO**: Cross-platform IDE with advanced debugging
+
+Automated build scripts:
+
+- `firmware/build_scripts/build.ps1` (PowerShell)
+- `firmware/build_scripts/build.sh` (Bash)
 
 ### Quality Automation
 

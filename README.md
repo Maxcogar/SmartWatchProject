@@ -72,31 +72,56 @@ SmartWatchProject/
    cd SmartWatchProject
    ```
 
-2. **Install Dependencies**
+2. **Run Setup Script**
+   ```bash
+   ./setup.sh
+   # or on Windows
+   powershell -ExecutionPolicy Bypass -File setup.ps1
+   ```
+   Installs PowerShell, ESP-IDF and Python packages.
+
+3. **Install Additional Dependencies**
    ```bash
    # For Arduino IDE
    # Install ESP32 board package and required libraries
-   
+
    # For ESP-IDF
    idf.py install
    ```
 
-3. **Build Firmware**
+4. **Build Firmware**
    ```bash
    # Arduino IDE: Open firmware/main/main.cpp and compile
-   
+
    # ESP-IDF
    cd firmware
    idf.py build
    ```
 
-4. **Flash Firmware**
+5. **Flash Firmware**
    ```bash
    # Arduino IDE: Use Upload button
-   
+
    # ESP-IDF
    idf.py flash monitor
    ```
+
+### Environment Variables
+
+After running `setup.sh` the following variables are useful:
+
+| Variable | Description |
+|----------|-------------|
+| `IDF_PATH` | Location of the ESP-IDF repository |
+| `IDF_TOOLS_PATH` | Directory containing ESP-IDF tools |
+
+Activate the ESP-IDF tools and update `PATH`:
+
+```bash
+export IDF_PATH=$HOME/esp/esp-idf
+export IDF_TOOLS_PATH=$HOME/esp/idf-tools
+source "$IDF_PATH/export.sh"
+```
 
 ## 🎨 ADHD-Friendly Design Principles
 

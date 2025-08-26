@@ -56,6 +56,7 @@ SmartWatchProject/
 - **Arduino IDE** 2.0+ or **ESP-IDF** 5.0+
 - **Git** for version control
 - **PowerShell** (Windows) for quality automation
+- **IDF_PATH** environment variable set to your ESP-IDF installation (required for quality checks)
 - ESP32-S3 development board with touch LCD
 
 ### Hardware Setup
@@ -123,6 +124,8 @@ Multiple development environments supported:
 ### Quality Automation
 
 Comprehensive quality system with automated validation:
+
+> **Note:** Ensure the `IDF_PATH` environment variable points to your ESP-IDF installation before running quality checks.
 
 ```powershell
 # Deploy quality gates

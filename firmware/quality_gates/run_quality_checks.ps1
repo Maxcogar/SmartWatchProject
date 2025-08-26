@@ -131,7 +131,7 @@ function Test-BuildQuality {
         Push-Location $FirmwarePath
         
         # Activate ESP-IDF environment
-        $env:IDF_PATH = "C:\esp\esp-idf"
+        if (-not $env:IDF_PATH) { throw "IDF_PATH not set" }
         
         # Run build and capture output
         $buildOutput = & idf.py build 2>&1
